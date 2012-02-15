@@ -1,24 +1,24 @@
 ﻿Imports System.IO
 Imports System.Xml
 Public Class Text2XML
-    Private opIncluirVacios As Boolean = False
-    Private opIncluirUltimoRenglon As Boolean = False
-    Private opLineaHead As Integer = 0
-    Private opLineaTail As Integer = 1
-    Private opTagRenglon As String = "Renglon"
-    Private opTagInicio As String = "OrdenDeCompra"
-    Private opTagToken As String = "Col"
-    Private opNumerarTokens As Boolean = True
-    Private opSeparadorRenglones As String = vbCrLf
-    Private opSeparadorColumnas As String = ","
+    Public opIncluirVacios As Boolean = False
+    Public opIncluirUltimoElemRenglon As Boolean = False
+    Public opLineaHead As Integer = 0
+    Public opLineaTail As Integer = 1
+    Public opTagRenglon As String = "Renglon"
+    Public opTagRaiz As String = "OrdenDeCompra"
+    Public opTagToken As String = "Col"
+    Public opNumerarTokens As Boolean = True
+    Public opSeparadorRenglones As String = vbCrLf
+    Public opSeparadorColumnas As String = ","
 
-    Private Sub New()
+    Public Sub New()
 
     End Sub
 
-    Private Function Parse2(ByVal path As String) As String
+    Public Function Parse(ByVal path As String) As String
         Dim str As String = ""
-        Dim sr As New StreamReader(path)
+        Dim sr As New StreamReader(Path)
         Dim lin As String
         Dim tokens() As String
         Dim incluir As Boolean
@@ -26,11 +26,11 @@ Public Class Text2XML
         Dim ultimaLinea As Boolean = False
         Dim numToken As Integer = 1
         Dim xmlDoc As New XmlDocument()
-        Dim nodoRaiz, nodoRenglon, nodoToken, nodoUltRenglon As XmlNode
-        nodoRaiz = xmlDoc.CreateElement(Me.opTagInicio)
+        Dim nodoRaiz, nodoRenglon, nodoToken, nodoUltimoRenglon As XmlNode
+        nodoRaiz = xmlDoc.CreateElement(Me.opTagRaiz)
         xmlDoc.AppendChild(nodoRaiz)
 
-        nodoUltRenglon = Nothing
+        nodoUltimoRenglon = Nothing
         nodoRaiz = xmlDoc.DocumentElement
         While Not sr.EndOfStream
             lin = sr.ReadLine()
@@ -61,19 +61,18 @@ Public Class Text2XML
                     nodoRenglon.AppendChild(nodoToken)
                 Next
                 nodoRaiz.AppendChild(nodoRenglon)
-                nodoUltRenglon = nodoRenglon
+                nodoUltimoRenglon = nodoRenglon
             End If
             primera = False
         End While
-        If Not Me.opIncluirUltimoRenglon And nodoUltRenglon IsNot Nothing Then
-            nodoRaiz.RemoveChild(nodoUltRenglon)
+        If Not Me.opIncluirUltimoElemRenglon And nodoUltimoRenglon IsNot Nothing Then
+            nodoRaiz.RemoveChild(nodoUltimoRenglon)
         End If
-
 
         Return "<?xml version=""1.0"" encoding=""ISO-8859-1""?>" & xmlDoc.OuterXml
     End Function
 
-    Private Function Parse(ByVal path As String) As String
+    Private Function _Parse(ByVal path As String) As String
         Dim str As String = ""
         Dim sr As New StreamReader(path)
         Dim lin As String
@@ -84,7 +83,7 @@ Public Class Text2XML
         Dim numToken As Integer = 1
 
         str &= "<?xml version=""1.0"" encoding=""ISO-8859-1""?>"
-        str &= "<" & Me.opTagInicio & ">"
+        str &= "<" & Me.opTagRaiz & ">"
         While Not sr.EndOfStream
             lin = sr.ReadLine()
             numToken = 1
@@ -121,16 +120,8 @@ Public Class Text2XML
             End If
             primera = False
         End While
-        str &= "</" & Me.opTagInicio & ">"
+        str &= "</" & Me.opTagRaiz & ">"
 
         Return str
     End Function
-
-    Public Shared Function ParseText(ByVal path As String) As String
-        Dim obj As New Text2XML
-
-        'Return obj.Parse(path)
-        Return obj.Parse2(path)
-    End Function
-
 End Class
