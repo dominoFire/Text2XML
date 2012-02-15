@@ -1,0 +1,49 @@
+procedimiento Parse(path)
+	str = ""
+	abre archivo a traducir poner el stream sr
+	primeraLinea = true
+	ultimaLinea = false
+	numToken = 1
+	sea xmlDoc un arbol XML
+	nodoRaiz contiene nodo raíz XML
+
+	xmlDoc se le agrega nodoRaiz
+	nodoUltRenglon = Nothing
+
+	while no sea fin del archivo
+		lin = lee siguiente linea
+		numToken = 1
+		If fin de archivo 
+			ulitmaLinea se activa
+		If primeraLinea y no queremos la primeraLinea linea
+			incluir = false
+		ElseIf ultimaLinea y no queremos la ultima linea
+			incluir = false
+		ElseIf lin = "" o lin esta vacio
+			incluir = opcion_opIncluirVacios
+		else
+			incluir = true
+		end
+		If incluir = true
+			nodoRenglon crea nuevo nodo renglon
+			tokens = divide por separador de renglon
+			for each s en tokens
+				If opNumeraToken 
+					nodoToken crea nuevo Token
+					numToken = numToken + 1
+				else
+					nodoToken crea nuevo Token
+				end
+				nodoToken agrega numero al tag
+				nodoRenglon agrega un nodoToken
+			next
+			nodoRaiz agrega nodoRenglon
+			nodoUltRenglon = nodoRenglon
+		end
+		primeraLinea = false
+	end
+	If no incluye el ultimo elemento y el ultimo nodo no tiene nada
+		nodoRaiz quita el nodoUltimoRenglon
+	end
+
+	regresar nodoRaiz
