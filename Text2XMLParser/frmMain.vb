@@ -1,6 +1,6 @@
-﻿Public Class frmMain
+﻿Public Class FrmMain
 
-    Private Sub btnCarga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFileLoad.Click
+    Private Sub BtnFileLoad_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFileLoad.Click
         Dim opf As New OpenFileDialog
         Dim obj As Text2Xml.Text2XmlConverter
 

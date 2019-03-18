@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmMain
+Partial Class FrmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,29 +22,29 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnFileLoad = New System.Windows.Forms.Button()
+        Me.BtnFileLoad = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'btnFileLoad
+        'BtnFileLoad
         '
-        Me.btnFileLoad.Location = New System.Drawing.Point(90, 42)
-        Me.btnFileLoad.Name = "btnFileLoad"
-        Me.btnFileLoad.Size = New System.Drawing.Size(120, 30)
-        Me.btnFileLoad.TabIndex = 0
-        Me.btnFileLoad.Text = "Load File..."
-        Me.btnFileLoad.UseVisualStyleBackColor = True
+        Me.BtnFileLoad.Location = New System.Drawing.Point(90, 42)
+        Me.BtnFileLoad.Name = "BtnFileLoad"
+        Me.BtnFileLoad.Size = New System.Drawing.Size(120, 30)
+        Me.BtnFileLoad.TabIndex = 0
+        Me.BtnFileLoad.Text = "Load File..."
+        Me.BtnFileLoad.UseVisualStyleBackColor = True
         '
-        'frmMain
+        'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(302, 113)
-        Me.Controls.Add(Me.btnFileLoad)
-        Me.Name = "frmMain"
+        Me.Controls.Add(Me.BtnFileLoad)
+        Me.Name = "FrmMain"
         Me.Text = "Text2Xml GUI Demo"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents btnFileLoad As System.Windows.Forms.Button
+    Friend WithEvents BtnFileLoad As System.Windows.Forms.Button
 
 End Class
