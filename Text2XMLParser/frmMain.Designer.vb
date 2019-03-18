@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,29 +22,29 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnCarga = New System.Windows.Forms.Button
+        Me.btnFileLoad = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'btnCarga
+        'btnFileLoad
         '
-        Me.btnCarga.Location = New System.Drawing.Point(90, 42)
-        Me.btnCarga.Name = "btnCarga"
-        Me.btnCarga.Size = New System.Drawing.Size(120, 30)
-        Me.btnCarga.TabIndex = 0
-        Me.btnCarga.Text = "Carga archivo"
-        Me.btnCarga.UseVisualStyleBackColor = True
+        Me.btnFileLoad.Location = New System.Drawing.Point(90, 42)
+        Me.btnFileLoad.Name = "btnFileLoad"
+        Me.btnFileLoad.Size = New System.Drawing.Size(120, 30)
+        Me.btnFileLoad.TabIndex = 0
+        Me.btnFileLoad.Text = "Load File..."
+        Me.btnFileLoad.UseVisualStyleBackColor = True
         '
-        'Form1
+        'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(419, 262)
-        Me.Controls.Add(Me.btnCarga)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.ClientSize = New System.Drawing.Size(302, 113)
+        Me.Controls.Add(Me.btnFileLoad)
+        Me.Name = "frmMain"
+        Me.Text = "Text2Xml GUI Demo"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents btnCarga As System.Windows.Forms.Button
+    Friend WithEvents btnFileLoad As System.Windows.Forms.Button
 
 End Class

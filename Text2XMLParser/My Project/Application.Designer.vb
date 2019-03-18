@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Text2XMLParser.Form1
+            Me.MainForm = Global.Text2XMLParser.frmMain
         End Sub
     End Class
 End Namespace
